@@ -1,6 +1,0 @@
-/home/mahadeva/code/NetworkMonitorChatLib/obj/Debug/net9.0/NetworkMonitorChatLib.csproj.AssemblyReference.cache
-/home/mahadeva/code/NetworkMonitorChatLib/obj/Debug/net9.0/rpswa.dswa.cache.json
-/home/mahadeva/code/NetworkMonitorChatLib/obj/Debug/net9.0/NetworkMonitorChatLib.GeneratedMSBuildEditorConfig.editorconfig
-/home/mahadeva/code/NetworkMonitorChatLib/obj/Debug/net9.0/NetworkMonitorChatLib.AssemblyInfoInputs.cache
-/home/mahadeva/code/NetworkMonitorChatLib/obj/Debug/net9.0/NetworkMonitorChatLib.AssemblyInfo.cs
-/home/mahadeva/code/NetworkMonitorChatLib/obj/Debug/net9.0/NetworkMonitorChatLib.csproj.CoreCompileInputs.cache
