@@ -125,3 +125,4 @@
 /home/mahadeva/code/NetworkMonitorChatLib/obj/Debug/net9.0-android/stamp/_CleanIntermediateIfNeeded.stamp
 /home/mahadeva/code/NetworkMonitorChatLib/obj/Debug/net9.0-android/stamp/_ConvertResourcesCases.stamp
 /home/mahadeva/code/NetworkMonitorChatLib/obj/Debug/net9.0-android/stamp/_ResolveLibraryProjectImports.stamp
+/home/mahadeva/code/NetworkMonitorChatLib/obj/Debug/net9.0-android/NetworkMonitorChatLib.sourcelink.json
