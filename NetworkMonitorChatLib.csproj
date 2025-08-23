@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net9.0-android</TargetFramework>
+    <TargetFramework>net9.0-windows10.0.19041.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
@@ -11,10 +11,11 @@
     <SupportedPlatform Include="browser" />
   </ItemGroup>
  <ItemGroup>
-                <ProjectReference Include="..\NetworkMonitorMaui\NetworkMonitorMaui-Android.csproj" />
+                <ProjectReference Include="..\NetworkMonitorMaui\NetworkMonitorMaui.csproj" />
         </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.8" />
+      <PackageReference Include="MatBlazor" Version="2.10.0" />
   </ItemGroup>
 
 </Project>
