@@ -253,13 +253,6 @@
     [Parameter]
     public bool IsDashboard { get; set; }
 
-    [Parameter]
-    public string InitRunnerType { get; set; } = "TurboLLM";
-
-
-    [Parameter]
-    public string SiteId { get; set; } = "";
-
     private async Task HandleLLMReady()
     {
         await Task.Delay(5000);
@@ -310,9 +303,7 @@
          }
         };
         _renderTimer.Start();
-
-        await ChatState.Initialize(InitRunnerType);
-        await WebSocketService.Initialize(SiteId); // No longer passing sessionId here
+        await WebSocketService.ResetService(); 
     }
 
 private async Task DismissNotification(string id)

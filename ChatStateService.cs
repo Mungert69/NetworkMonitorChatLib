@@ -14,6 +14,8 @@ namespace NetworkMonitorChat
         public bool IsExpanded { get; set; } = true;
         public bool IsDrawerOpen { get; set; } = false;
         public bool AutoScrollEnabled { get; set; } = true;
+        public string InitRunnerType = "TurboLLM";
+        public string SiteId { get; set; } = "";
 
         // Processing and loading states
         public bool IsReady { get; set; } = true;
@@ -94,9 +96,9 @@ namespace NetworkMonitorChat
         }
 
 
-        public async Task Initialize(string initRunnerType)
+        public async Task Initialize()
         {
-            LLMRunnerType = initRunnerType;
+            LLMRunnerType = InitRunnerType;
             await GetSessionId();
         }
         public async Task ClearSession()

@@ -21,7 +21,6 @@ namespace NetworkMonitorChat
         private readonly IJSRuntime _jsRuntime;
         private readonly AudioService _audioService;
         private CancellationTokenSource _cancellationTokenSource;
-        private string _siteId=""; // Remove readonly since we need to assign it later
         private readonly ILLMService _llmService;
         private Task? _receiveTask;
         private Task? _pingTask;
@@ -42,13 +41,13 @@ namespace NetworkMonitorChat
             _audioService = audioService;
             _cancellationTokenSource = new CancellationTokenSource();
             _llmService = llmService;
-            _siteId = string.Empty;
             _netConfig = netConfig;
+            _netConfig.OnAuthCompleteAsync += AuthCompleteAync;
+
         }
 
-        public async Task Initialize(string siteId)
+        public async Task Initialize()
         {
-            _siteId = siteId;
             QueuedReplayMessage = "<|REPLAY_HISTORY|>";
             _isConnectionReady = false;
            
@@ -71,7 +70,7 @@ namespace NetworkMonitorChat
                 await CleanupWebSocket();
 
                 _webSocket = new ClientWebSocket();
-                var serverUrl = _llmService.GetLLMServerUrl(_siteId);
+                var serverUrl = _llmService.GetLLMServerUrl(_chatState.SiteId);
 
                 // Add the auth token to the request headers if provided
                 if (!string.IsNullOrEmpty(_netConfig.LocalSystemUrl.RabbitPassword))
@@ -80,7 +79,7 @@ namespace NetworkMonitorChat
     "Authorization",
     $"Bearer {_netConfig.LocalSystemUrl.RabbitPassword}"
 );
-                    serverUrl = _llmService.GetLLMServerAuthUrl(_siteId);
+                    serverUrl = _llmService.GetLLMServerAuthUrl(_chatState.SiteId);
                     Console.WriteLine($"Using Auth Url {serverUrl}");
 
                 }
@@ -659,7 +658,16 @@ namespace NetworkMonitorChat
                 }
             }
         }
+        public async Task ResetService()
+        {
+            await _chatState.Initialize();
+            await Initialize();
 
+        }
+        private async Task AuthCompleteAync()
+        {
+            await ResetService();
+        }
         private class FunctionData
         {
             public string Name { get; set; }="";
